@@ -9,16 +9,6 @@ require("telescope").setup{
                 preview_width = 0.6
             }
         },
-        mappings = {
-            i = {
-                ["<esc>"] = actions.close
-            },
-        },
-    },
-    extensions = {
-        file_browser = {
-            hijack_netrw = true
-        }
     }
 }
 

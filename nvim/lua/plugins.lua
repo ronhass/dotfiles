@@ -1,58 +1,106 @@
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
+-- auto install packer if not installed
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+        vim.cmd([[packadd packer.nvim]])
+        return true
+    end
+    return false
+end
+local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
-  use 'crucerucalin/peaksea.vim'
-  use 'joshdick/onedark.vim'
-  use 'morhetz/gruvbox'
-  use 'dracula/vim'
-  use 'arcticicestudio/nord-vim'
-  use 'tomasiser/vim-code-dark'
+-- autocommand that reloads neovim and installs/updates/removes plugins
+-- when file is saved
+vim.cmd([[
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost plugins.lua source <afile> | PackerSync
+augroup end
+]])
 
-  use {
-	  'nvim-treesitter/nvim-treesitter',
-	  run = ':TSUpdate'
-  }
+-- import packer safely
+local status, packer = pcall(require, "packer")
+if not status then
+    return
+end
 
-  use {
-	  'nvim-lualine/lualine.nvim',
-	  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+-- add list of plugins to install
+return packer.startup(function(use)
+    -- packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  use 'neovim/nvim-lspconfig'
+    -- colorschemes
+    use 'crucerucalin/peaksea.vim'
+    use 'joshdick/onedark.vim'
+    use 'morhetz/gruvbox'
+    use 'dracula/vim'
+    use 'arcticicestudio/nord-vim'
+    use 'tomasiser/vim-code-dark'
+    use 'bluz71/vim-nightfly-guicolors'
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
-  use 'nvim-telescope/telescope-file-browser.nvim'
+    use 'tpope/vim-surround' -- add, delete, change surroundings (it's awesome)
 
-  -- use 'tpope/vim-vinegar'
+    -- managing & installing lsp servers, linters & formatters
+	use 'williamboman/mason.nvim' -- in charge of managing lsp servers, linters & formatters
+	use 'williamboman/mason-lspconfig.nvim' -- bridges gap b/w mason & lspconfig
 
-  use 'kdheepak/lazygit.nvim'
+    use 'neovim/nvim-lspconfig'
 
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  use {
-		  'stevearc/aerial.nvim',
-		  config = function() require('aerial').setup() end
-  }
+    use 'nvim-telescope/telescope-file-browser.nvim'
 
-  -- use 'Vimjas/vim-python-pep8-indent'
+    -- use 'tpope/vim-vinegar'
 
-  use 'tpope/vim-fugitive'
+    use 'kdheepak/lazygit.nvim'
 
-  use 'numToStr/Comment.nvim'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
 
-  use 'jiangmiao/auto-pairs'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+
+    -- use {
+    --     'stevearc/aerial.nvim',
+    --     config = function() require('aerial').setup() end
+    -- }
+
+    -- use 'Vimjas/vim-python-pep8-indent'
+
+    use 'tpope/vim-fugitive'
+
+    use 'numToStr/Comment.nvim'
+
+    use 'jiangmiao/auto-pairs'
+
+    use 'ThePrimeagen/vim-be-good'
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main"
+    })
+
+    use 'szw/vim-maximizer'
+
+    use 'christoomey/vim-tmux-navigator'
 end)
