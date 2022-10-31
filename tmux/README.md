@@ -4,3 +4,5 @@ Taken from: https://www.josean.com/posts/tmux-setup
 Steps:
 1. git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 2. ln -s <this_folder>/tmux.conf ~/.tmux.conf
+3. run "<C-a>I" inside tmux to install plugins
+

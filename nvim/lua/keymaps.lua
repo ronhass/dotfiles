@@ -45,5 +45,4 @@ keymap("n", "<leader>w", ":set list!<CR>", opts)
 
 keymap("n", "<leader>b", ":Git blame<CR>", opts)
 
--- Toggle the aerial window with <leader>a
-keymap("n", "<leader>a", ":AerialToggle!<CR>", opts)
+keymap("n", "<leader>o", ":LSoutlineToggle<CR>", opts)

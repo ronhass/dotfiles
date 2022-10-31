@@ -9,4 +9,6 @@ require('plug-cmp')
 require('plug-comment')
 require('plug-telescope')
 require('plug-mason')
+require('plug-workspaces')
+require('plug-sessions')
 

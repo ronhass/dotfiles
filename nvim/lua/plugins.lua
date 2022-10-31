@@ -103,4 +103,8 @@ return packer.startup(function(use)
     use 'szw/vim-maximizer'
 
     use 'christoomey/vim-tmux-navigator'
+
+    use 'natecraddock/workspaces.nvim'
+
+    use 'natecraddock/sessions.nvim'
 end)
