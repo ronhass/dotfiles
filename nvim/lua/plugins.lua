@@ -107,4 +107,13 @@ return packer.startup(function(use)
     use 'natecraddock/workspaces.nvim'
 
     use 'natecraddock/sessions.nvim'
+
+    use 'vim-scripts/ReplaceWithRegister'
+
+    use {
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig"
+    }
+
+    use "lukas-reineke/indent-blankline.nvim"
 end)

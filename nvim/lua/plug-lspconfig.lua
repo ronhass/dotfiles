@@ -1,3 +1,6 @@
+local navic = require("nvim-navic")
+
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -9,8 +12,12 @@ local on_attach = function(client, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
   vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
-  vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+  vim.keymap.set("n", "lr", "<cmd>Lspsaga rename<CR>", opts)
   vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+
+  if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, bufnr)
+  end
 end
 
 require('lspconfig')['pyright'].setup{

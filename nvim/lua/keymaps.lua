@@ -37,6 +37,7 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fr", ":Telescope resume<CR>", opts)
 keymap("n", "<leader>fe", ":Telescope file_browser<CR>", opts)
+keymap("n", "<leader>fm", ":Telescope man_pages<CR>", opts)
 
 keymap("n", "<leader>g", ":LazyGit<CR>", opts)
 
