@@ -37,7 +37,7 @@ keymap("n", "<leader>mb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>mh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>mr", ":Telescope resume<CR>", opts)
 keymap("n", "<leader>e", ":Telescope file_browser path=%:p:h<CR>", opts)
-keymap("n", "<leader>mm", ":Telescope man_pages<CR>", opts)
+keymap("n", "<leader>mm", ":Telescope man_pages sections=ALL<CR>", opts)
 keymap("n", "<leader>mo", ":Telescope oldfiles<CR>", opts)
 
 keymap("n", "<leader>g", ":LazyGit<CR>", opts)
