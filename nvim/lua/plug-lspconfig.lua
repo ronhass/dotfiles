@@ -13,7 +13,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
   vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
   vim.keymap.set("n", "lr", "<cmd>Lspsaga rename<CR>", opts)
-  vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+  vim.keymap.set("n", "<leader>ma", "<cmd>Lspsaga code_action<CR>", opts)
 
   if client.server_capabilities.documentSymbolProvider then
       navic.attach(client, bufnr)

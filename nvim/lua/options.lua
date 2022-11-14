@@ -19,4 +19,5 @@ vim.cmd("syntax on")
 vim.cmd("set termguicolors")
 vim.cmd("colorscheme dracula")
 
+vim.cmd("let g:gitblame_enabled = 0")
 

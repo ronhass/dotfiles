@@ -25,25 +25,26 @@ keymap("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & he
 keymap("n", "<leader>sx", ":close<CR>", opts) -- close current split window
 keymap("n", "<leader>sm", ":MaximizerToggle!<CR>", opts) -- close current split window
 
-keymap("n", "<leader>tn", ":tabnew<CR>", opts) -- open new tab
+keymap("n", "<leader>tc", ":tabnew<CR>", opts) -- open new tab
 keymap("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
 keymap("n", "<leader>tn", ":tabn<CR>", opts) --  go to next tab
 keymap("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
 
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fs", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fc", ":Telescope grep_string<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
-keymap("n", "<leader>fr", ":Telescope resume<CR>", opts)
-keymap("n", "<leader>fe", ":Telescope file_browser<CR>", opts)
-keymap("n", "<leader>fm", ":Telescope man_pages<CR>", opts)
+keymap("n", "<leader>p", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>c", ":Telescope grep_string<CR>", opts)
+keymap("n", "<leader>mb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>mh", ":Telescope help_tags<CR>", opts)
+keymap("n", "<leader>mr", ":Telescope resume<CR>", opts)
+keymap("n", "<leader>e", ":Telescope file_browser path=%:p:h<CR>", opts)
+keymap("n", "<leader>mm", ":Telescope man_pages<CR>", opts)
+keymap("n", "<leader>mo", ":Telescope oldfiles<CR>", opts)
 
 keymap("n", "<leader>g", ":LazyGit<CR>", opts)
 
 keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("n", "<leader>w", ":set list!<CR>", opts)
 
-keymap("n", "<leader>b", ":Git blame<CR>", opts)
+keymap("n", "<leader>b", ":GitBlameToggle<CR>", opts)
 
 keymap("n", "<leader>o", ":LSoutlineToggle<CR>", opts)

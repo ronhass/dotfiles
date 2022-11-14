@@ -88,7 +88,7 @@ return packer.startup(function(use)
 
     -- use 'Vimjas/vim-python-pep8-indent'
 
-    use 'tpope/vim-fugitive'
+    -- use 'tpope/vim-fugitive'
 
     use 'numToStr/Comment.nvim'
 
@@ -116,4 +116,6 @@ return packer.startup(function(use)
     }
 
     use "lukas-reineke/indent-blankline.nvim"
+
+    use "f-person/git-blame.nvim"
 end)

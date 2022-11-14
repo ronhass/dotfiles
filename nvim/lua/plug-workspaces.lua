@@ -1,3 +1,7 @@
+require("sessions").setup({
+    events = { "BufEnter", "VimPreLeave" }
+})
+
 require("workspaces").setup({
     hooks = {
         add = function(name)
