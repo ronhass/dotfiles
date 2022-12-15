@@ -10,9 +10,11 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
-  vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
-  vim.keymap.set("n", "lr", "<cmd>Lspsaga rename<CR>", opts)
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+  vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
+  vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts)
+  vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
   vim.keymap.set("n", "<leader>ma", "<cmd>Lspsaga code_action<CR>", opts)
 
   if client.server_capabilities.documentSymbolProvider then
@@ -56,6 +58,15 @@ require('lspconfig')['rust_analyzer'].setup({
     --     }
     -- }
 })
+
+require('lspconfig')['sumneko_lua'].setup{
+    on_attach = on_attach
+}
+
+require('lspconfig')['bashls'].setup{
+    on_attach = on_attach,
+    filetypes = { "sh", "zsh" },
+}
 
 -- Disable diagnostics
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
