@@ -17,7 +17,7 @@ vim.opt.smartcase = true -- if you include mixed case in your search, assumes yo
 
 vim.cmd("syntax on")
 vim.cmd("set termguicolors")
-vim.cmd("colorscheme dracula")
+vim.cmd("colorscheme sonokai")
 
 vim.cmd("let g:gitblame_enabled = 0")
 

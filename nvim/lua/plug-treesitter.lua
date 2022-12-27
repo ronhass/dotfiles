@@ -31,22 +31,22 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = {"python"},
   },
 
---  indent = {
---		  enable = true,
---		  disable = {"python", },
---  },
+  -- indent = {
+  --     enable = true,
+  --     disable = {"python", },
+  -- },
 
-    textobjects = {
-        select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
-            },
-        },
-    },
+  textobjects = {
+      select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner",
+          },
+      },
+  },
 }
 

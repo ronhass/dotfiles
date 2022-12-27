@@ -39,6 +39,7 @@ return packer.startup(function(use)
     use 'arcticicestudio/nord-vim'
     use 'tomasiser/vim-code-dark'
     use 'bluz71/vim-nightfly-guicolors'
+    use 'sainnhe/sonokai'
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -122,4 +123,6 @@ return packer.startup(function(use)
     use "f-person/git-blame.nvim"
 
     use "anuvyklack/pretty-fold.nvim"
+
+    use "ggandor/leap.nvim"
 end)

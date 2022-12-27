@@ -39,6 +39,7 @@ keymap("n", "<leader>r", ":Telescope resume<CR>", opts)
 keymap("n", "<leader>e", ":Telescope file_browser path=%:p:h<CR>", opts)
 keymap("n", "<leader>mm", ":Telescope man_pages sections=ALL<CR>", opts)
 keymap("n", "<leader>l", ":Telescope oldfiles only_cwd=true<CR>", opts)
+keymap("n", "<leader>mp", ":Telescope workspaces<CR>", opts)
 
 keymap("n", "<leader>g", ":LazyGit<CR>", opts)
 
@@ -48,3 +49,5 @@ keymap("n", "<leader>w", ":set list!<CR>", opts)
 keymap("n", "<leader>b", ":GitBlameToggle<CR>", opts)
 
 keymap("n", "<leader>o", ":LSoutlineToggle<CR>", opts)
+
+require('leap').add_default_mappings()
