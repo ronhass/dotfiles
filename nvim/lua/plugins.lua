@@ -88,7 +88,7 @@ return packer.startup(function(use)
     --     config = function() require('aerial').setup() end
     -- }
 
-    -- use 'Vimjas/vim-python-pep8-indent'
+    use 'Vimjas/vim-python-pep8-indent'
 
     -- use 'tpope/vim-fugitive'
 
@@ -120,4 +120,6 @@ return packer.startup(function(use)
     use "lukas-reineke/indent-blankline.nvim"
 
     use "f-person/git-blame.nvim"
+
+    use "anuvyklack/pretty-fold.nvim"
 end)

@@ -21,3 +21,6 @@ vim.cmd("colorscheme dracula")
 
 vim.cmd("let g:gitblame_enabled = 0")
 
+vim.cmd("set foldmethod=expr")
+vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
+vim.cmd("set nofoldenable")

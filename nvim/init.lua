@@ -11,4 +11,4 @@ require('plug-telescope')
 require('plug-mason')
 require('plug-workspaces')
 require('plug-sessions')
-
+require('plug-pretty-fold')
