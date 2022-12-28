@@ -127,4 +127,9 @@ return packer.startup(function(use)
     use "ggandor/leap.nvim"
 
     use 'ronhass/symbols-outline.nvim'
+
+    use {
+        'nmac427/guess-indent.nvim',
+        config = function() require('guess-indent').setup {} end,
+    }
 end)
