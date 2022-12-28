@@ -126,5 +126,5 @@ return packer.startup(function(use)
 
     use "ggandor/leap.nvim"
 
-    use 'simrat39/symbols-outline.nvim'
+    use 'ronhass/symbols-outline.nvim'
 end)
