@@ -48,6 +48,6 @@ keymap("n", "<leader>w", ":set list!<CR>", opts)
 
 keymap("n", "<leader>b", ":GitBlameToggle<CR>", opts)
 
-keymap("n", "<leader>o", ":LSoutlineToggle<CR>", opts)
+keymap("n", "<leader>o", ":SymbolsOutline<CR>", opts)
 
 require('leap').add_default_mappings()

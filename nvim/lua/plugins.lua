@@ -125,4 +125,6 @@ return packer.startup(function(use)
     use "anuvyklack/pretty-fold.nvim"
 
     use "ggandor/leap.nvim"
+
+    use 'simrat39/symbols-outline.nvim'
 end)
