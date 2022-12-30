@@ -13,7 +13,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
   vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
   vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts)
-  vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+  vim.keymap.set("n", "<leader>mr", "<cmd>Lspsaga rename<CR>", opts)
   vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
   vim.keymap.set("n", "<leader>ma", "<cmd>Lspsaga code_action<CR>", opts)
 

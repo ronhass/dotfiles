@@ -14,6 +14,9 @@ keymap("n", "<leader>nh", ":nohl<CR>", opts)
 -- delete single character without copying into register
 keymap("n", "x", '"_x', opts)
 
+-- select all text
+keymap("n", "<leader>a", "ggVG", opts)
+
 -- increment/decrement numbers
 keymap("n", "<leader>+", "<C-a>", opts) -- increment
 keymap("n", "<leader>-", "<C-x>", opts) -- decrement
