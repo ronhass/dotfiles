@@ -166,4 +166,15 @@ return packer.startup(function(use)
         'folke/which-key.nvim',
         config = function() require('which-key').setup {} end,
     }
+
+    -- Debugging
+    use {
+        'mfussenegger/nvim-dap',
+        config = function() require("plug-dap") end,
+    }
+    use 'ravenxrz/DAPInstall.nvim'
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'rcarriga/nvim-dap-ui'
+    use 'mfussenegger/nvim-dap-python'
+    use 'nvim-telescope/telescope-dap.nvim'
 end)
