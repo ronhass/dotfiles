@@ -41,98 +41,127 @@ return packer.startup(function(use)
     use 'bluz71/vim-nightfly-guicolors'
     use 'sainnhe/sonokai'
 
+    -- TreeSitter (syntax parser)
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        run = ':TSUpdate',
+        config = function() require("plug-treesitter") end,
     }
-
     use 'nvim-treesitter/nvim-treesitter-textobjects'
 
+    -- Lualine (status line)
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = function() require("plug-lualine") end,
     }
-
-    use 'tpope/vim-surround' -- add, delete, change surroundings (it's awesome)
-
-    -- managing & installing lsp servers, linters & formatters
-	use 'williamboman/mason.nvim' -- in charge of managing lsp servers, linters & formatters
-	use 'williamboman/mason-lspconfig.nvim' -- bridges gap b/w mason & lspconfig
-
-    use 'neovim/nvim-lspconfig'
-
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-    use 'nvim-telescope/telescope-file-browser.nvim'
-
-    -- use 'tpope/vim-vinegar'
-
-    use 'kdheepak/lazygit.nvim'
-
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/vim-vsnip'
-
-    -- use {
-    --     'stevearc/aerial.nvim',
-    --     config = function() require('aerial').setup() end
-    -- }
-
-    use 'Vimjas/vim-python-pep8-indent'
-
-    -- use 'tpope/vim-fugitive'
-
-    use 'numToStr/Comment.nvim'
-
-    use 'jiangmiao/auto-pairs'
-
-    use 'ThePrimeagen/vim-be-good'
-    use({
-        "glepnir/lspsaga.nvim",
-        branch = "main"
-    })
-
-    use 'szw/vim-maximizer'
-
-    use 'christoomey/vim-tmux-navigator'
-
-    use 'natecraddock/workspaces.nvim'
-
-    use 'natecraddock/sessions.nvim'
-
-    use 'vim-scripts/ReplaceWithRegister'
-
+    -- Plugin to show code context in lualine
     use {
         "SmiteshP/nvim-navic",
         requires = "neovim/nvim-lspconfig"
     }
 
+    -- add, delete, change surroundings (cs, ds)
+    use 'tpope/vim-surround'
+
+    -- managing & installing lsp servers, linters & formatters
+	use {
+        'williamboman/mason.nvim', -- in charge of managing lsp servers, linters & formatters,
+        config = function() require("mason").setup() end,
+    }
+	use 'williamboman/mason-lspconfig.nvim' -- bridges gap b/w mason & lspconfig
+
+    -- manages LSP configurations
+    use {
+        'neovim/nvim-lspconfig',
+        config = function() require("plug-lspconfig") end,
+    }
+
+    -- Telescope
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} },
+        config = function() require("plug-telescope") end,
+    }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use 'nvim-telescope/telescope-file-browser.nvim'
+
+    -- LazyGit integration
+    use 'kdheepak/lazygit.nvim'
+
+    -- Autocompletion
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use {
+        'hrsh7th/nvim-cmp',
+        config = function() require("plug-cmp") end,
+    }
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+
+    -- Ensure PEP8 indentation
+    use 'Vimjas/vim-python-pep8-indent'
+
+    -- add/remove comments (gc)
+    use {
+        'numToStr/Comment.nvim',
+        config = function() require("Comment").setup() end,
+    }
+
+    -- Automatically pair parantheses etc.
+    use 'jiangmiao/auto-pairs'
+
+    -- -- Game to practice vim
+    -- use 'ThePrimeagen/vim-be-good'
+
+    -- Nice-looking code references etc.
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main"
+    })
+    --
+
+    -- Maximize splits
+    use 'szw/vim-maximizer'
+
+    -- Integration with tmux to navigate splits (Ctrl+h/j/k/l)
+    use 'christoomey/vim-tmux-navigator'
+
+    -- Manage "projects"
+    use 'natecraddock/workspaces.nvim'
+    use {
+        'natecraddock/sessions.nvim',
+        config = function() require("plug-workspaces") end,
+    }
+
+    -- Replace text object with register (gr)
+    use 'vim-scripts/ReplaceWithRegister'
+
+    -- Add indentation guides
     use "lukas-reineke/indent-blankline.nvim"
 
+    -- Inline git blame
     use "f-person/git-blame.nvim"
 
-    use "anuvyklack/pretty-fold.nvim"
-
+    -- Jump to locations by two characters (s/S)
     use "ggandor/leap.nvim"
 
-    use 'ronhass/symbols-outline.nvim'
+    -- Code outline
+    use {
+        'ronhass/symbols-outline.nvim',
+        config = function() require("plug-symbols-outline") end,
+    }
 
+    -- Automatically configure indentation according to current file
     use {
         'nmac427/guess-indent.nvim',
         config = function() require('guess-indent').setup {} end,
     }
 
+    -- Help on key bindings
     use {
         'folke/which-key.nvim',
         config = function() require('which-key').setup {} end,
