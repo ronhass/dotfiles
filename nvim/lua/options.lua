@@ -15,6 +15,8 @@ vim.opt.iskeyword:append("-") -- consider string-string as whole word
 vim.opt.ignorecase = true -- ignore case when searching
 vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
+vim.opt.timeoutlen = 250
+
 vim.cmd("syntax on")
 vim.cmd("set termguicolors")
 vim.cmd("colorscheme sonokai")

@@ -132,4 +132,9 @@ return packer.startup(function(use)
         'nmac427/guess-indent.nvim',
         config = function() require('guess-indent').setup {} end,
     }
+
+    use {
+        'folke/which-key.nvim',
+        config = function() require('which-key').setup {} end,
+    }
 end)

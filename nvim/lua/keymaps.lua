@@ -6,51 +6,54 @@ local keymap = vim.api.nvim_set_keymap
 
 ---------------------
 -- General Keymaps
----------------------
-
--- clear search highlights
-keymap("n", "<leader>nh", ":nohl<CR>", opts)
-
 -- delete single character without copying into register
 keymap("n", "x", '"_x', opts)
 
--- select all text
-keymap("n", "<leader>a", "ggVG", opts)
+require("which-key").register({
+    ["<leader>"] = {
+        a = {"ggVG", "Select all text"},
+        p = {":Telescope find_files<CR>", "Find file"},
+        f = {":Telescope live_grep<CR>", "Live grep"},
+        c = {":Telescope grep_string<CR>", "Search for current word"},
+        h = {":Telescope help_tags<CR>", "Help"},
+        r = {":Telescope resume<CR>", "Resume the last peeker"},
+        e = {":Telescope file_browser path=%:p:h<CR>", "File Browser"},
+        l = {":Telescope oldfiles only_cwd=true<CR>", "Latest files"},
+        g = {":LazyGit<CR>", "LazyGit"},
+        w = {":set list!<CR>", "Toggle whitespaces"},
+        b = {":GitBlameToggle<CR>", "Git blame (toggle)"},
+        o = {":SymbolsOutline<CR>", "Outline (toggle)"},
+        n = {":nohl<CR>", "Clear search highlights"},
+        ["+"] = {"<C-a>", "Increment number"},
+        ["-"] = {"<C-x>", "Decrement number"},
+    },
 
--- increment/decrement numbers
-keymap("n", "<leader>+", "<C-a>", opts) -- increment
-keymap("n", "<leader>-", "<C-x>", opts) -- decrement
+    ["<leader>s"] = {
+        name = "+splits",
+        v = {"<C-w>v", "Split window vertically"},
+        h = {"<C-w>s", "Split window horizontally"},
+        e = {"<C-w>=", "Equalize split windows sizes"},
+        n = {"<C-w>w", "Goto next split"},
+        x = {":close<CR>", "Close split"},
+        m = {":MaximizerToggle!<CR>", "Maximize split (toggle)"},
+    },
 
--- window management
-keymap("n", "<leader>sv", "<C-w>v", opts) -- split window vertically
-keymap("n", "<leader>sh", "<C-w>s", opts) -- split window horizontally
-keymap("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
-keymap("n", "<leader>sx", ":close<CR>", opts) -- close current split window
-keymap("n", "<leader>sm", ":MaximizerToggle!<CR>", opts) -- close current split window
+    ["<leader>t"] = {
+        name = "+tabs",
+        c = {":tabnew<CR>", "Create new tab"},
+        x = {":tabclose<CR>", "Close tab"},
+        n = {":tabn<CR>", "Goto next tab"},
+        p = {":tabp<CR", "Goto previous tab"},
+    },
 
-keymap("n", "<leader>tc", ":tabnew<CR>", opts) -- open new tab
-keymap("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
-keymap("n", "<leader>tn", ":tabn<CR>", opts) --  go to next tab
-keymap("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
-
-keymap("n", "<leader>p", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>c", ":Telescope grep_string<CR>", opts)
-keymap("n", "<leader>mb", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>h", ":Telescope help_tags<CR>", opts)
-keymap("n", "<leader>r", ":Telescope resume<CR>", opts)
-keymap("n", "<leader>e", ":Telescope file_browser path=%:p:h<CR>", opts)
-keymap("n", "<leader>mm", ":Telescope man_pages sections=ALL<CR>", opts)
-keymap("n", "<leader>l", ":Telescope oldfiles only_cwd=true<CR>", opts)
-keymap("n", "<leader>mp", ":Telescope workspaces<CR>", opts)
-
-keymap("n", "<leader>g", ":LazyGit<CR>", opts)
-
-keymap("n", "<C-s>", ":w<CR>", opts)
-keymap("n", "<leader>w", ":set list!<CR>", opts)
-
-keymap("n", "<leader>b", ":GitBlameToggle<CR>", opts)
-
-keymap("n", "<leader>o", ":SymbolsOutline<CR>", opts)
+    ["<leader>m"] = {
+        name = "+more",
+        b = {":Telescope buffers<CR>", "Buffers"},
+        m = {":Telescope man_pages sections=ALL<CR>", "Man pages"},
+        p = {":Telescope workspaces<CR>", "Choose project"},
+        r = {":Lspsaga rename<CR>", "Rename"},
+        a = {":Lspsaga code_action<CR>", "Code actions"},
+    },
+})
 
 require('leap').add_default_mappings()

@@ -8,14 +8,14 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-  vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
-  vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts)
-  vim.keymap.set("n", "<leader>mr", "<cmd>Lspsaga rename<CR>", opts)
-  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-  vim.keymap.set("n", "<leader>ma", "<cmd>Lspsaga code_action<CR>", opts)
+  require("which-key").register({
+      g = {
+          d = {vim.lsp.definition, "Goto definition"},
+          h = {":Lspsaga lsp_finder<CR>", "References"},
+          p = {":Lspsaga peek_definition<CR>", "Peek definition"},
+      },
+      K = {":Lspsaga hover_doc<CR>", "Show documentation"},
+  }, {buffer = bufnr})
 
   if client.server_capabilities.documentSymbolProvider then
       navic.attach(client, bufnr)
