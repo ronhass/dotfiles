@@ -10,7 +10,7 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   require("which-key").register({
       g = {
-          d = {vim.lsp.definition, "Goto definition"},
+          d = {vim.lsp.buf.definition, "Goto definition"},
           h = {":Lspsaga lsp_finder<CR>", "References"},
           p = {":Lspsaga peek_definition<CR>", "Peek definition"},
       },

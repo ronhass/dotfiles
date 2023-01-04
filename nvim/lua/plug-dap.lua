@@ -9,7 +9,35 @@ local function configure()
     }
 
     local dap, dapui = require "dap", require "dapui"
-    dapui.setup {} -- use default
+    dapui.setup {
+        icons = {
+            expanded = "▼",
+            collapsed = "▶",
+            current_frame = "■",
+        },
+        controls = {
+            enabled = false,
+        },
+        layouts = {
+            {
+                elements = {
+                    "breakpoints",
+                    "stacks",
+                    "scopes",
+                },
+                size = 40,
+                position = "left",
+            },
+            {
+                elements = {
+                    "repl",
+                    "console",
+                },
+                size = 0.25,
+                position = "bottom",
+            },
+        },
+    }
     dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
     end
