@@ -177,4 +177,8 @@ return packer.startup(function(use)
     use 'rcarriga/nvim-dap-ui'
     use 'mfussenegger/nvim-dap-python'
     use 'nvim-telescope/telescope-dap.nvim'
+
+    use {
+        'akinsho/git-conflict.nvim', tag = "*", config = function() require('git-conflict').setup() end,
+    }
 end)

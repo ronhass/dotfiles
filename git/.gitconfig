@@ -1,0 +1,16 @@
+[user]
+	email = ronhass37@gmail.com
+	name = Ron Hass
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta
+
+[delta]
+    line-numbers = true
+    side-by-side = true
+
+[merge]
+    conflictstyle = diff3

@@ -53,6 +53,7 @@ require("which-key").register({
         p = {":Telescope workspaces<CR>", "Choose project"},
         r = {":Lspsaga rename<CR>", "Rename"},
         a = {":Lspsaga code_action<CR>", "Code actions"},
+        h = {":LazyGitFilterCurrentFile<CR>", "File git history"},
     },
 })
 

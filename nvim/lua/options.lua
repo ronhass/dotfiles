@@ -26,3 +26,9 @@ vim.cmd("let g:gitblame_enabled = 0")
 vim.cmd("set foldmethod=expr")
 vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
 vim.cmd("set nofoldenable")
+
+vim.cmd([[
+if has('nvim') && executable('nvr')
+  let $GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
+endif
+]])
