@@ -21,6 +21,9 @@ vim.cmd("syntax on")
 vim.cmd("set termguicolors")
 vim.cmd("colorscheme sonokai")
 
+-- Fix unbearable blue in DiffText
+vim.api.nvim_set_hl(0, "DiffText", { background = 0x18282b });
+
 vim.cmd("let g:gitblame_enabled = 0")
 
 vim.cmd("set foldmethod=expr")
