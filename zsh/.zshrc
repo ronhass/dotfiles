@@ -86,26 +86,23 @@ export EDITOR="nvim"
 
 alias vim="nvim"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Daily temp directory
+function tt() {
+    DATE=$(date "+%Y.%m.%d")
+    DIR=~/temp/$DATE
+    mkdir -p $DIR
+    echo $DIR
+}
+alias cdt='cd $(tt)'
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Fast access to last downloaded file
+function ldf() {
+    gfind ~/Downloads -maxdepth 1 -type f -printf "%C@ %p\0" | sort -zrn | read -d '' ts file
+    echo $file
+}
+alias cld='cp "$(ldf)" .'
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# Use `b` to go back to previous directory
+setopt autopushd
+alias b='popd'
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
