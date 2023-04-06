@@ -43,7 +43,7 @@ require("which-key").register({
         c = {":tabnew<CR>", "Create new tab"},
         x = {":tabclose<CR>", "Close tab"},
         n = {":tabn<CR>", "Goto next tab"},
-        p = {":tabp<CR", "Goto previous tab"},
+        p = {":tabp<CR>", "Goto previous tab"},
     },
 
     ["<leader>m"] = {
