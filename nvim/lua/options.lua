@@ -35,3 +35,6 @@ if has('nvim') && executable('nvr')
   let $GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif
 ]])
+
+vim.cmd("let g:gitgutter_highlight_linenrs = 1")
+vim.cmd("let g:gitgutter_signs = 0")
