@@ -53,12 +53,7 @@ return packer.startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function() require("plug-lualine") end,
-    }
-    -- Plugin to show code context in lualine
-    use {
-        "SmiteshP/nvim-navic",
-        requires = "neovim/nvim-lspconfig"
+        config = function() require("lualine").setup() end,
     }
 
     -- add, delete, change surroundings (cs, ds)
@@ -117,12 +112,24 @@ return packer.startup(function(use)
     -- -- Game to practice vim
     -- use 'ThePrimeagen/vim-be-good'
 
+    use({
+        "nvim-tree/nvim-web-devicons",
+        config = function() require("nvim-web-devicons").setup() end,
+    })
+
     -- Nice-looking code references etc.
     use({
         "glepnir/lspsaga.nvim",
-        branch = "main"
+        branch = "main",
+        config = function()
+            require("lspsaga").setup({symbol_in_winbar = { folder_level = 7 }})
+        end,
+        requires = {
+            {"nvim-tree/nvim-web-devicons"},
+            --Please make sure you install markdown and markdown_inline parser
+            {"nvim-treesitter/nvim-treesitter"}
+        }
     })
-    --
 
     -- Maximize splits
     use 'szw/vim-maximizer'

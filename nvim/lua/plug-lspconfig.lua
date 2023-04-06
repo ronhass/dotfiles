@@ -1,6 +1,3 @@
-local navic = require("nvim-navic")
-
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -10,16 +7,12 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   require("which-key").register({
       g = {
-          d = {vim.lsp.buf.definition, "Goto definition"},
+          d = {":Lspsaga goto_definition<CR>", "Goto definition"},
           h = {":Lspsaga lsp_finder<CR>", "References"},
           p = {":Lspsaga peek_definition<CR>", "Peek definition"},
       },
       K = {":Lspsaga hover_doc<CR>", "Show documentation"},
   }, {buffer = bufnr})
-
-  if client.server_capabilities.documentSymbolProvider then
-      navic.attach(client, bufnr)
-  end
 end
 
 require('lspconfig')['pyright'].setup{
@@ -27,7 +20,7 @@ require('lspconfig')['pyright'].setup{
     settings = {
 	    python = {
 		    analysis = {
-			    autoImportCompletions = false
+			    autoImportCompletions = true
 		    }
 	    }
     }
