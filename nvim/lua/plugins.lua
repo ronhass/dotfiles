@@ -48,6 +48,11 @@ return packer.startup(function(use)
         config = function() require("plug-treesitter") end,
     }
     use 'nvim-treesitter/nvim-treesitter-textobjects'
+    use {
+        'nvim-treesitter/playground',
+        run = ':TSInstall query',
+        config = function() require("nvim-treesitter.configs").setup({}) end,
+    }
 
     -- Lualine (status line)
     use {
