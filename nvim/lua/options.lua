@@ -29,6 +29,7 @@ vim.cmd("let g:gitblame_enabled = 0")
 vim.cmd("set foldmethod=expr")
 vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
 vim.cmd("set nofoldenable")
+vim.cmd("set cmdheight=0")
 
 vim.cmd([[
 if has('nvim') && executable('nvr')
