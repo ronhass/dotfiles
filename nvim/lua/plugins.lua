@@ -195,4 +195,14 @@ return packer.startup(function(use)
     }
 
     use 'airblade/vim-gitgutter'
+
+    use {
+        'nvim-tree/nvim-tree.lua',
+        config = function() require('nvim-tree').setup() end,
+    }
+
+    use {
+        'RRethy/vim-illuminate',
+        config = function() require('illuminate').setup() end,
+    }
 end)

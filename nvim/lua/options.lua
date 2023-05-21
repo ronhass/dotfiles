@@ -17,6 +17,9 @@ vim.opt.smartcase = true -- if you include mixed case in your search, assumes yo
 
 vim.opt.timeoutlen = 250
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.cmd("syntax on")
 vim.cmd("set termguicolors")
 vim.cmd("colorscheme sonokai")

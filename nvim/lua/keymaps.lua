@@ -17,7 +17,7 @@ require("which-key").register({
         c = {":Telescope grep_string<CR>", "Search for current word"},
         h = {":Telescope help_tags<CR>", "Help"},
         r = {":Telescope resume<CR>", "Resume the last peeker"},
-        e = {":Telescope file_browser path=%:p:h<CR>", "File Browser"},
+        e = {":NvimTreeToggle<CR>", "File Browser"},
         l = {":Telescope oldfiles only_cwd=true<CR>", "Latest files"},
         g = {":LazyGit<CR>", "LazyGit"},
         w = {":set list!<CR>", "Toggle whitespaces"},
@@ -54,6 +54,7 @@ require("which-key").register({
         r = {":Lspsaga rename<CR>", "Rename"},
         a = {":Lspsaga code_action<CR>", "Code actions"},
         h = {":LazyGitFilterCurrentFile<CR>", "File git history"},
+        d = {":Lspsaga show_buf_diagnostics<CR>", "Show diagnostics"},
     },
 })
 
