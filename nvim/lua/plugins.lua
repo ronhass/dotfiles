@@ -194,8 +194,12 @@ return packer.startup(function(use)
         'akinsho/git-conflict.nvim', tag = "*", config = function() require('git-conflict').setup() end,
     }
 
-    use 'airblade/vim-gitgutter'
+    -- use 'airblade/vim-gitgutter'
 
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function() require('gitsigns').setup() end,
+    }
     use {
         'nvim-tree/nvim-tree.lua',
         config = function() require('nvim-tree').setup() end,

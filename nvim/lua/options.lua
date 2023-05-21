@@ -40,5 +40,5 @@ if has('nvim') && executable('nvr')
 endif
 ]])
 
-vim.cmd("let g:gitgutter_highlight_linenrs = 1")
-vim.cmd("let g:gitgutter_signs = 0")
+-- vim.cmd("let g:gitgutter_highlight_linenrs = 1")
+-- vim.cmd("let g:gitgutter_signs = 0")
