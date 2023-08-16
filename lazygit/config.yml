@@ -1,3 +1,6 @@
+gui:
+  border: 'rounded'
+  nerdFontsVersion: '3'
 git:
   paging:
     colorArg: always
