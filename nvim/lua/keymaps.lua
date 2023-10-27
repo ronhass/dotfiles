@@ -1,6 +1,3 @@
--- leader key to space
-vim.g.mapleader = " "
-
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
@@ -50,11 +47,9 @@ require("which-key").register({
         name = "+more",
         b = {":Telescope buffers<CR>", "Buffers"},
         m = {":Telescope man_pages sections=ALL<CR>", "Man pages"},
-        p = {":Telescope workspaces<CR>", "Choose project"},
-        r = {":Lspsaga rename<CR>", "Rename"},
-        a = {":Lspsaga code_action<CR>", "Code actions"},
+        r = {function() vim.lsp.buf.rename() end, "Rename"},
         h = {":LazyGitFilterCurrentFile<CR>", "File git history"},
-        d = {":Lspsaga show_buf_diagnostics<CR>", "Show diagnostics"},
+        d = {":Telescope diagnostics<CR>", "Show diagnostics"},
     },
 })
 

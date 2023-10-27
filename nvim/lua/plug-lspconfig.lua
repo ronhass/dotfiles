@@ -7,11 +7,11 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   require("which-key").register({
       g = {
-          d = {":Lspsaga goto_definition<CR>", "Goto definition"},
-          h = {":Lspsaga lsp_finder<CR>", "References"},
-          p = {":Lspsaga peek_definition<CR>", "Peek definition"},
+          d = {":Telescope lsp_definitions<CR>", "Goto definition"},
+          h = {":Telescope lsp_references<CR>", "References"},
+          -- p = {":Lspsaga peek_definition<CR>", "Peek definition"},
       },
-      K = {":Lspsaga hover_doc<CR>", "Show documentation"},
+      K = {function() vim.lsp.buf.hover() end, "Show documentation"},
   }, {buffer = bufnr})
 end
 
