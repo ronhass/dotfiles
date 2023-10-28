@@ -13,7 +13,7 @@ require("which-key").register({
         f = {":Telescope live_grep<CR>", "Live grep"},
         c = {":Telescope grep_string<CR>", "Search for current word"},
         h = {":Telescope help_tags<CR>", "Help"},
-        r = {":Telescope resume<CR>", "Resume the last peeker"},
+        r = {":Telescope pickers<CR>", "Navigate last telescope pickers"},
         e = {":NvimTreeToggle<CR>", "File Browser"},
         l = {":Telescope oldfiles only_cwd=true<CR>", "Latest files"},
         g = {":LazyGit<CR>", "LazyGit"},

@@ -1,4 +1,3 @@
-local actions = require("telescope.actions")
 require("telescope").setup{
     defaults = {
         sorting_strategy = "ascending",
@@ -8,6 +7,9 @@ require("telescope").setup{
                 width = 0.9,
                 preview_width = 0.6
             }
+        },
+        cache_picker = {
+            num_pickers = 10,
         },
     }
 }
