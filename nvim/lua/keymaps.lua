@@ -35,14 +35,6 @@ require("which-key").register({
         m = {":MaximizerToggle!<CR>", "Maximize split (toggle)"},
     },
 
-    ["<leader>t"] = {
-        name = "+tabs",
-        c = {":tabnew<CR>", "Create new tab"},
-        x = {":tabclose<CR>", "Close tab"},
-        n = {":tabn<CR>", "Goto next tab"},
-        p = {":tabp<CR>", "Goto previous tab"},
-    },
-
     ["<leader>m"] = {
         name = "+more",
         b = {":Telescope buffers<CR>", "Buffers"},
@@ -50,6 +42,7 @@ require("which-key").register({
         r = {function() vim.lsp.buf.rename() end, "Rename"},
         h = {":LazyGitFilterCurrentFile<CR>", "File git history"},
         d = {":Telescope diagnostics<CR>", "Show diagnostics"},
+        e = {":NvimTreeFindFileToggle<CR>", "File browser (on current file)"},
     },
 })
 
