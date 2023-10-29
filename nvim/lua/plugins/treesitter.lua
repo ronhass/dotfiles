@@ -3,7 +3,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         lazy = true,
         build = ":TSUpdate",
-        opes = {
+        opts = {
             -- A list of parser names, or "all"
             ensure_installed = { "python", "c", "markdown", "markdown_inline" },
 
