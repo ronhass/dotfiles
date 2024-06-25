@@ -22,6 +22,7 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.cmd("syntax on")
 vim.cmd("set termguicolors")
+vim.cmd("let g:sonokai_style = 'atlantis'")
 
 -- Fix unbearable blue in DiffText
 vim.api.nvim_set_hl(0, "DiffText", { background = 0x18282b });
