@@ -2,7 +2,12 @@ return {
     -- manages LSP configurations
     {
         "neovim/nvim-lspconfig",
+
+        dependencies = { 'saghen/blink.cmp' },
+
         config = function()
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
+
             -- Use an on_attach function to only map the following keys
             -- after the language server attaches to the current buffer
             local on_attach = function(client, bufnr)
@@ -19,6 +24,7 @@ return {
 
             require('lspconfig')['pyright'].setup{
                 on_attach = on_attach,
+                capabilities = capabilities,
                 settings = {
                     python = {
                         analysis = {
@@ -29,15 +35,18 @@ return {
             }
 
             require('lspconfig')['clangd'].setup{
-                on_attach = on_attach
+                on_attach = on_attach,
+                capabilities = capabilities,
             }
 
             require('lspconfig')['rust_analyzer'].setup({
-                on_attach = on_attach
+                on_attach = on_attach,
+                capabilities = capabilities,
             })
 
             require'lspconfig'.lua_ls.setup {
                 on_attach = on_attach,
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         runtime = {
@@ -63,6 +72,7 @@ return {
 
             require('lspconfig')['bashls'].setup{
                 on_attach = on_attach,
+                capabilities = capabilities,
                 filetypes = { "sh", "zsh" },
             }
 
