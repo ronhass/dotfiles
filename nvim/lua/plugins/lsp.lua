@@ -10,13 +10,11 @@ return {
                 vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
                 -- Mappings.
-                require("which-key").register({
-                    g = {
-                        d = {":Telescope lsp_definitions<CR>", "Goto definition"},
-                        h = {":Telescope lsp_references<CR>", "References"},
-                    },
-                    K = {function() vim.lsp.buf.hover() end, "Show documentation"},
-                }, {buffer = bufnr})
+                require("which-key").add({
+                    { "K", function() vim.lsp.buf.hover() end, buffer = bufnr, desc = "Show documentation" },
+                    { "gd", ":Telescope lsp_definitions<CR>", buffer = bufnr, desc = "Goto definition" },
+                    { "gh", ":Telescope lsp_references<CR>", buffer = bufnr, desc = "References" },
+                })
             end
 
             require('lspconfig')['pyright'].setup{
